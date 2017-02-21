@@ -86,6 +86,10 @@ typedef NS_ENUM(NSInteger, MMPLocationServiceType) {
     return self;
 }
 
+- (void)dealloc {
+    self.manager.delegate = nil;
+}
+
 - (void)stop {
     switch (_settings.locationServiceType) {
         case MMPLocationServiceTypeAuthOnly:
